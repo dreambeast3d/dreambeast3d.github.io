@@ -131,7 +131,7 @@
   </div>
 </section> -->
 
-<section class="hero teaser">
+<section class="hero teaser" style="margin-bottom: 0; padding-bottom: 0;">
   <div class="container is-max-desktop">
     <div class="hero-body">
       <center><img src="./static/images/teaser.png" alt="mainimg" style="width:850px"><center>
@@ -142,7 +142,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" style="margin-top: 0; padding-top: 0;">
   <div class="container is-max-desktop">
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
@@ -152,8 +152,8 @@
           <ul>
             <li>We introduce DreamBeast, a new method for generating <b>part-aware</b> 3D asset <b>efficiently</b>.</li>
             <li>Utilize a novel <b>part-aware knowledge transfer</b> mechanism.</li>
-            <li>Efficiently extract part-level knowledge from Stable Diffusion 3 into a <b>Part-affinity NeRF</b> for instant generation from various camera views.</li>
-            <li>Render part-affinity maps from the Part-affinity NeRF and <b>modulate</b> a multi-view diffusion model during score distillation sampling (SDS).</li>
+            <li>Efficiently extract part-level knowledge from Stable Diffusion 3 into a <b>Part-Affinity NeRF</b> for instant generation from various camera views.</li>
+            <li>Render Part-Affinity maps from the Part-Affinity NeRF and <b>modulate</b> a multi-view diffusion model during score distillation sampling (SDS).</li>
             <li>Improves the part-awareness and quality of generated 3D creatures with efficient computational costs.</li>
           </ul>
         </div>
@@ -162,7 +162,7 @@
     <!--/ Abstract. -->
 </section>
 
-<section class="hero is-light is-small">
+<section class="hero comparison">
   <div class="columns is-centered has-text-centered">
   <div class="column is-four-fifths">
   <h2 class="title is-3">3D Fantastic Animal Generation</h2>
@@ -203,31 +203,6 @@
   </div>
 </section>
 
-<section class="hero is-light is-small">
-  <div class="columns is-centered has-text-centered">
-  <div class="column is-four-fifths">
-  <h2 class="title is-3">Part-affinity Map</h2>
-    <div class="hero-body">
-      <video width="500" controls autoplay muted loop>
-          <source src="./static/videos/part-aff/0.mp4" type="video/mp4">
-      </video>
-      <video width="500" controls autoplay muted loop>
-          <source src="./static/videos/part-aff/1.mp4" type="video/mp4">
-      </video>
-    </div>
-    <div class="hero-body">
-      <video width="500" controls autoplay muted loop>
-          <source src="./static/videos/part-aff/2.mp4" type="video/mp4">
-      </video>
-      <video width="500" controls autoplay muted loop>
-          <source src="./static/videos/part-aff/3.mp4" type="video/mp4">
-      </video>
-    </div>
-    
-    
-  </div>
-  </div>
-</section>
 
 
 <section class="section">
@@ -252,7 +227,7 @@
     <!--/ Abstract. -->
 </section>
 
-<section class="hero method">
+<section class="hero comparison">
   <div class="container is-max-desktop">
     <h2 class="title is-3">Pipeline</h2>
     <div class="hero-body">
@@ -262,12 +237,38 @@
       <h2 class="subtitle">
         <ul>
           <li>(1): Partially optimize a NeRF using standard SDS.</li>
-          <li>(2): Render multiple views of the partially optimized NeRF and input them into SD3 with a text prompt to create part-affinity maps via cross-attention.</li>
-          <li>(3): Train a Part-affinity NeRF using these extracted maps.</li>
-          <li>(4): Freeze the optimized Part-affinity NeRF; render both 3D asset NeRF and Part-affinity NeRF from the same camera pose. And use the rendered part-affinity map to modulate cross and self-attention in MVDream, generating a part-aware 3D animal.</li>
+          <li>(2): Render multiple views of the partially optimized NeRF and input them into SD3 with a text prompt to create Part-Affinity maps via cross-attention.</li>
+          <li>(3): Train a Part-Affinity NeRF using these extracted maps.</li>
+          <li>(4): Freeze the optimized Part-Affinity NeRF; render both 3D asset NeRF and Part-Affinity NeRF from the same camera pose. And use the rendered Part-Affinity map to modulate cross and self-attention in MVDream, generating a part-aware 3D animal.</li>
         </ul>
       </h2>
     </div>
+  </div>
+</section>
+
+<section class="hero comparison">
+  <div class="columns is-centered has-text-centered">
+  <div class="column is-four-fifths">
+  <h2 class="title is-3">Part-Affinity Map</h2>
+    <div class="hero-body">
+      <video width="500" controls autoplay muted loop>
+          <source src="./static/videos/part-aff/0.mp4" type="video/mp4">
+      </video>
+      <video width="500" controls autoplay muted loop>
+          <source src="./static/videos/part-aff/1.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero-body">
+      <video width="500" controls autoplay muted loop>
+          <source src="./static/videos/part-aff/2.mp4" type="video/mp4">
+      </video>
+      <video width="500" controls autoplay muted loop>
+          <source src="./static/videos/part-aff/3.mp4" type="video/mp4">
+      </video>
+    </div>
+    
+    
+  </div>
   </div>
 </section>
 
