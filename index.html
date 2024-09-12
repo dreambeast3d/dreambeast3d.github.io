@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="DreamBeast: Distilling 3D Fantastic Animals with Part-Aware Knowledge Transfer">
+        content="DreamBeast: Distilling 3D Fantastical Animals with Part-Aware Knowledge Transfer">
   <meta name="keywords" content="3D Modeling, SDS, Lifting, Distillation">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DreamBeast: Distilling 3D Fantastic Animals with Part-Aware Knowledge Transfer</title>
+  <title>DreamBeast: Distilling 3D Fantastical Animals with Part-Aware Knowledge Transfer</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -48,7 +48,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">DreamBeast: Distilling 3D Fantastic Animals with Part-Aware Knowledge Transfer</h1>
+          <h1 class="title is-1 publication-title">DreamBeast: Distilling 3D Fantastical Animals with Part-Aware Knowledge Transfer</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://runjiali-rl.github.io/">Runjia Li</a><sup>1</sup>,
@@ -82,7 +82,7 @@
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup>University of Oxford,</span>
             <span class="author-block"><sup>2</sup>Australian National University,</span>   
-            <span class="author-block"><sup>3</sup>University of Copenhagen,</span>
+            <span class="author-block"><sup>3</sup>University of Copenhagen</span>
 
           </div>
 
@@ -165,7 +165,7 @@
 <section class="hero comparison">
   <div class="columns is-centered has-text-centered">
   <div class="column is-four-fifths">
-  <h2 class="title is-3">3D Fantastic Animal Generation</h2>
+  <h2 class="title is-3">3D Fantastical Animal Generation</h2>
     <div class="hero-body">
       <video width="500" controls autoplay muted loop>
           <source src="./static/videos/0.mp4" type="video/mp4">
@@ -236,10 +236,12 @@
       </div>
       <h2 class="subtitle">
         <ul>
-          <li>(1): Partially optimize a NeRF using standard SDS.</li>
-          <li>(2): Render multiple views of the partially optimized NeRF and input them into SD3 with a text prompt to create Part-Affinity maps via cross-attention.</li>
-          <li>(3): Train a Part-Affinity NeRF using these extracted maps.</li>
-          <li>(4): Freeze the optimized Part-Affinity NeRF; render both 3D asset NeRF and Part-Affinity NeRF from the same camera pose. And use the rendered Part-Affinity map to modulate cross and self-attention in MVDream, generating a part-aware 3D animal.</li>
+          <ol type="1">
+          <li>Partially optimize a NeRF using standard SDS.</li>
+          <li>Render multiple views of the partially optimized NeRF and input them into SD3 with a text prompt to create Part-Affinity maps via cross-attention.</li>
+          <li>Train a Part-Affinity NeRF using these extracted maps.</li>
+          <li>Freeze the optimized Part-Affinity NeRF; render both 3D asset NeRF and Part-Affinity NeRF from the same camera pose. And use the rendered Part-Affinity map to modulate cross and self-attention in MVDream, generating a part-aware 3D animal.</li>
+          </ol>
         </ul>
       </h2>
     </div>
@@ -277,11 +279,11 @@
   <div class="container is-max-desktop">
     <h2 class="title is-3">Results</h2>
     <div class="hero-body">
-      <center><img src="./static/images/comparison.png" alt="mainimg" style="width:850px"><center>
+      <img src="./static/images/comparison.png" alt="mainimg" style="width:850px">
       <h2 class="subtitle has-text-centered">
         Comparison with baseline methods. 
       </h2>
-      <center><img src="./static/images/part_affinity.png" alt="mainimg" style="width:850px"><center>
+      <img src="./static/images/part_affinity.png" alt="mainimg" style="width:850px">
       <h2 class="subtitle has-text-centered">
         Part-affinity maps visualization. 
       </h2>
@@ -293,9 +295,9 @@
   <div class="container is-max-desktop">
     <h2 class="title is-3">Non-animal Part-aware Generation</h2>
     <div class="hero-body">
-      <center><img src="./static/images/non_animal/0.png" alt="mainimg" style="width:850px"><center>
-      <center><img src="./static/images/non_animal/1.png" alt="mainimg" style="width:850px"><center>
-      <center><img src="./static/images/non_animal/2.png" alt="mainimg" style="width:850px"><center>
+      <img src="./static/images/non_animal/0.png" alt="mainimg" style="width:850px">
+      <img src="./static/images/non_animal/1.png" alt="mainimg" style="width:850px">
+      <img src="./static/images/non_animal/2.png" alt="mainimg" style="width:850px">
 
     </div>
   </div>
