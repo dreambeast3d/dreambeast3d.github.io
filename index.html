@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="DreamBeast: Distilling 3D Fantastic Animals with Part-Aware Knowledge Transfer">
+  <meta name="keywords" content="3D Modeling, SDS, Lifting, Distillation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DreamBeast: Distilling 3D Fantastic Animals with Part-Aware Knowledge Transfer</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/icon.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">DreamBeast: Distilling 3D Fantastic Animals with Part-Aware Knowledge Transfer</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://runjiali-rl.github.io/">Runjia Li</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://junlinhan.github.io/">Junlin Han</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://lukemelas.github.io/">Luke Melas-Kyriazi</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://chuny1.github.io/">Chunyi Sun</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://zhaochongan.github.io/">Zhaochong An</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=HRnLy5wAAAAJ&hl=en">Zhongrui Gui</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://kevin-ssy.github.io/">Shuyang Sun</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.robots.ox.ac.uk/~phst/">Philip Torr</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.robots.ox.ac.uk/~tomj/">Tomas Jakab</a><sup>1</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>University of Oxford,</span>
+            <span class="author-block"><sup>2</sup>Australian National University,</span>   
+            <span class="author-block"><sup>3</sup>University of Copenhagen,</span>
+
+          </div>
+
+
+          <div class="column has-text-centered">
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/xxx"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/runjiali-rl/threestudio-dreambeast"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- <section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">3D-GPT: 3D MODELING WITH LARGE LANGUAGE MODELS</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <center><img src="./static/images/teaser.png" alt="mainimg" style="width:850px"><center>
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">DreamBeast</span> generates fantastical 3D animal assets composed of distinct parts.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">TL;DR</h2>
+        <div class="content has-text-justified">
+          <ul>
+            <li>We introduce DreamBeast, a new method for generating <b>part-aware</b> 3D asset <b>efficiently</b>.</li>
+            <li>Utilize a novel <b>part-aware knowledge transfer</b> mechanism.</li>
+            <li>Efficiently extract part-level knowledge from Stable Diffusion 3 into a <b>Part-affinity NeRF</b> for instant generation from various camera views.</li>
+            <li>Render part-affinity maps from the Part-affinity NeRF and <b>modulate</b> a multi-view diffusion model during score distillation sampling (SDS).</li>
+            <li>Improves the part-awareness and quality of generated 3D creatures with efficient computational costs.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+</section>
+
+<section class="hero is-light is-small">
+  <div class="columns is-centered has-text-centered">
+  <div class="column is-four-fifths">
+  <h2 class="title is-3">3D Fantastic Animal Generation</h2>
+    <div class="hero-body">
+      <video width="500" controls autoplay muted loop>
+          <source src="./static/videos/0.mp4" type="video/mp4">
+      </video>
+      <video width="500" controls autoplay muted loop>
+          <source src="./static/videos/1.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero-body">
+      <video width="500" controls autoplay muted loop>
+          <source src="./static/videos/2.mp4" type="video/mp4">
+      </video>
+      <video width="500" controls autoplay muted loop>
+          <source src="./static/videos/3.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero-body">
+      <video width="500" controls autoplay muted loop>
+          <source src="./static/videos/4.mp4" type="video/mp4">
+      </video>
+      <video width="500" controls autoplay muted loop>
+          <source src="./static/videos/5.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero-body">
+      <video width="500" controls autoplay muted loop>
+          <source src="./static/videos/6.mp4" type="video/mp4">
+      </video>
+      <video width="500" controls autoplay muted loop>
+          <source src="./static/videos/7.mp4" type="video/mp4">
+      </video>
+    </div>
+    
+  </div>
+  </div>
+</section>
+
+<section class="hero is-light is-small">
+  <div class="columns is-centered has-text-centered">
+  <div class="column is-four-fifths">
+  <h2 class="title is-3">Part-affinity Map</h2>
+    <div class="hero-body">
+      <video width="500" controls autoplay muted loop>
+          <source src="./static/videos/part-aff/0.mp4" type="video/mp4">
+      </video>
+      <video width="500" controls autoplay muted loop>
+          <source src="./static/videos/part-aff/1.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero-body">
+      <video width="500" controls autoplay muted loop>
+          <source src="./static/videos/part-aff/2.mp4" type="video/mp4">
+      </video>
+      <video width="500" controls autoplay muted loop>
+          <source src="./static/videos/part-aff/3.mp4" type="video/mp4">
+      </video>
+    </div>
+    
+    
+  </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We present DreamBeast, a novel method based on score distillation sampling (SDS) for generating fantastical 3D animal assets composed of distinct parts.
+          </p>
+          <p>
+            Existing SDS methods often struggle with this generation task due to a limited understanding of part-level semantics in text-to-image diffusion models. While recent diffusion models, such as Stable Diffusion 3, demonstrate a better part-level understanding, they are prohibitively slow and exhibit other common problems associated with single-view diffusion models. DreamBeast overcomes this limitation through a novel part-aware knowledge transfer mechanism. For each generated asset, we efficiently extract part-level knowledge from the Stable Diffusion 3 model into a 3D part-affinity implicit representation. This enables us to instantly generate part-affinity maps from arbitrary camera views, which we then use to modulate the guidance of a multi-view diffusion model during SDS to generate 3D assets of fantastical animals.
+          </p>
+          <p>   
+            DreamBeast significantly enhances the quality of generated 3D creatures with user-specified part compositions while reducing computational overhead, as demonstrated by extensive quantitative and qualitative evaluations.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+</section>
+
+<section class="hero method">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Pipeline</h2>
+    <div class="hero-body">
+      <div style="text-align: center;">
+        <img src="./static/images/method.jpg" alt="mainimg" style="width:850px;">
+      </div>
+      <h2 class="subtitle">
+        <ul>
+          <li>(1): Partially optimize a NeRF using standard SDS.</li>
+          <li>(2): Render multiple views of the partially optimized NeRF and input them into SD3 with a text prompt to create part-affinity maps via cross-attention.</li>
+          <li>(3): Train a Part-affinity NeRF using these extracted maps.</li>
+          <li>(4): Freeze the optimized Part-affinity NeRF; render both 3D asset NeRF and Part-affinity NeRF from the same camera pose. And use the rendered part-affinity map to modulate cross and self-attention in MVDream, generating a part-aware 3D animal.</li>
+        </ul>
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero comparison">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Results</h2>
+    <div class="hero-body">
+      <center><img src="./static/images/comparison.png" alt="mainimg" style="width:850px"><center>
+      <h2 class="subtitle has-text-centered">
+        Comparison with baseline methods. 
+      </h2>
+      <center><img src="./static/images/part_affinity.png" alt="mainimg" style="width:850px"><center>
+      <h2 class="subtitle has-text-centered">
+        Part-affinity maps visualization. 
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="hero comparison">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Non-animal Part-aware Generation</h2>
+    <div class="hero-body">
+      <center><img src="./static/images/non_animal/0.png" alt="mainimg" style="width:850px"><center>
+      <center><img src="./static/images/non_animal/1.png" alt="mainimg" style="width:850px"><center>
+      <center><img src="./static/images/non_animal/2.png" alt="mainimg" style="width:850px"><center>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+  
+<!-- <section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{sun2022nerfeditor,
+  title={NeRFEditor: Differentiable Style Decomposition for Full 3D Scene Editing},
+  author={Sun, Chunyi and Liu, Yanbing and Han, Junlin and Gould, Stephen},
+  journal={arXiv preprint arXiv:2212.03848},
+  year={2022}
+}</code></pre>
+  </div>
+</section> -->
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/runjiali-rl/threestudio-dreambeast" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
